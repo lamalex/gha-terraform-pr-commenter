@@ -64,7 +64,7 @@ if [[ $COMMAND == 'fmt' ]]; then
   if [ "$PR_COMMENT_ID" ]; then
     echo -e "\033[34;1mINFO:\033[0m Found existing fmt PR comment: $PR_COMMENT_ID. Deleting."
     PR_COMMENT_URL="$PR_COMMENT_URI/$PR_COMMENT_ID"
-    curl -sS -X DELETE -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -L "$PR_COMMENT_URL" > /dev/null
+    curl -sS -X DELETE -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -L "$PR_COMMENT_URL"
   else
     echo -e "\033[34;1mINFO:\033[0m No existing fmt PR comment found."
   fi
@@ -114,7 +114,7 @@ $ALL_FILES_DIFF"
   # Add fmt failure comment to PR.
   PR_PAYLOAD=$(echo '{}' | jq --arg body "$PR_COMMENT" '.body = $body')
   echo -e "\033[34;1mINFO:\033[0m Adding fmt failure comment to PR."
-  curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL" > /dev/null
+  curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL"
 
   exit 0
 fi
@@ -129,7 +129,7 @@ if [[ $COMMAND == 'init' ]]; then
   if [ "$PR_COMMENT_ID" ]; then
     echo -e "\033[34;1mINFO:\033[0m Found existing init PR comment: $PR_COMMENT_ID. Deleting."
     PR_COMMENT_URL="$PR_COMMENT_URI/$PR_COMMENT_ID"
-    curl -sS -X DELETE -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -L "$PR_COMMENT_URL" > /dev/null
+    curl -sS -X DELETE -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -L "$PR_COMMENT_URL"
   else
     echo -e "\033[34;1mINFO:\033[0m No existing init PR comment found."
   fi
@@ -159,7 +159,7 @@ $INPUT
   # Add init failure comment to PR.
   PR_PAYLOAD=$(echo '{}' | jq --arg body "$PR_COMMENT" '.body = $body')
   echo -e "\033[34;1mINFO:\033[0m Adding init failure comment to PR."
-  curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL" > /dev/null
+  curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL"
 
   exit 0
 fi
@@ -174,7 +174,7 @@ if [[ $COMMAND == 'plan' ]]; then
   if [ "$PR_COMMENT_ID" ]; then
     echo -e "\033[34;1mINFO:\033[0m Found existing plan PR comment: $PR_COMMENT_ID. Deleting."
     PR_COMMENT_URL="$PR_COMMENT_URI/$PR_COMMENT_ID"
-    curl -sS -X DELETE -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -L "$PR_COMMENT_URL" > /dev/null
+    curl -sS -X DELETE -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -L "$PR_COMMENT_URL"
   else
     echo -e "\033[34;1mINFO:\033[0m No existing plan PR comment found."
   fi
@@ -215,7 +215,7 @@ $INPUT
   # Add plan comment to PR.
   PR_PAYLOAD=$(echo '{}' | jq --arg body "$PR_COMMENT" '.body = $body')
   echo -e "\033[34;1mINFO:\033[0m Adding plan comment to PR."
-  curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL" > /dev/null
+  curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL"
 
   exit 0
 fi
@@ -230,7 +230,7 @@ if [[ $COMMAND == 'validate' ]]; then
   if [ "$PR_COMMENT_ID" ]; then
     echo -e "\033[34;1mINFO:\033[0m Found existing validate PR comment: $PR_COMMENT_ID. Deleting."
     PR_COMMENT_URL="$PR_COMMENT_URI/$PR_COMMENT_ID"
-    curl -sS -X DELETE -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -L "$PR_COMMENT_URL" > /dev/null
+    curl -sS -X DELETE -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -L "$PR_COMMENT_URL"
   else
     echo -e "\033[34;1mINFO:\033[0m No existing validate PR comment found."
   fi
@@ -260,7 +260,7 @@ $INPUT
   # Add validate failure comment to PR.
   PR_PAYLOAD=$(echo '{}' | jq --arg body "$PR_COMMENT" '.body = $body')
   echo -e "\033[34;1mINFO:\033[0m Adding validate failure comment to PR."
-  curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL" > /dev/null
+  curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL"
 
   exit 0
 fi
