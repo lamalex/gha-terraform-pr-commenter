@@ -7,6 +7,9 @@ PR_NUMBER=$(jq -r ".pull_request.number" "$GITHUB_EVENT_PATH")
 if [[ "$PR_NUMBER" == "null" ]]; then
 	echo "This isn't a PR."
 	exit 0
+else
+	echo "pr_number $PR_NUMBER"
+	echo "github_event_path $GITHUB_EVENT_PATH"
 fi
 
 if [[ -z "$GITHUB_TOKEN" ]]; then
@@ -53,6 +56,7 @@ CONTENT_HEADER="Content-Type: application/json"
 
 PR_COMMENTS_URL=$(jq -r ".pull_request.comments_url" "$GITHUB_EVENT_PATH")
 PR_COMMENT_URI=$(jq -r ".repository.issue_comment_url" "$GITHUB_EVENT_PATH" | sed "s|{/number}||g")
+echo "pr_comments_url $PR_COMMENTS_URL"
 
 ##############
 # Handler: fmt
