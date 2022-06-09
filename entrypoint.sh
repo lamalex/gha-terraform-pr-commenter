@@ -219,7 +219,7 @@ $INPUT
   # Add plan comment to PR.
   PR_PAYLOAD=$(echo '{}' | jq --arg body "$PR_COMMENT" '.body = $body')
   echo -e "\033[34;1mINFO:\033[0m Adding plan comment to PR."
-  curl -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL"
+  curl -v -sS -X POST -H "$AUTH_HEADER" -H "$ACCEPT_HEADER" -H "$CONTENT_HEADER" -d "$PR_PAYLOAD" -L "$PR_COMMENTS_URL"
   echo "auth_header $AUTH_HEADER"
   echo "accept_header $ACCEPT_HEADER"
   echo "content_header $CONTENT_HEADER"
