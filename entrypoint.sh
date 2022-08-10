@@ -201,7 +201,8 @@ if [[ $COMMAND == 'plan' ]]; then
 <details$DETAILS_STATE><summary>Show Output</summary>
 
 \`\`\`diff
-$CLEAN_PLAN
+HELLO THIS IS THE ONE
+$INPUT
 \`\`\`
 </details>"
   fi
